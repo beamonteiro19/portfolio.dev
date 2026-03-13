@@ -198,7 +198,14 @@ function App() {
                   <a
                     href="public\CV - Beatriz M. Vieira.pdf"
                     download="CV - Beatriz M. Vieira.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="group relative inline-flex items-center gap-4 px-8 py-4 border border-[#8F3985] bg-[#8F3985]/5 overflow-hidden transition-all duration-500 hover:bg-[#8F3985]"
+                    onClick={(e) => {
+                      if (window.innerWidth < 768) {
+                        console.log("Iniciando download mobile...");
+                      }
+                    }}
                   >
                     <div className="absolute inset-0 w-0 bg-white/20 transition-all duration-300 ease-out group-hover:w-full" />
 
