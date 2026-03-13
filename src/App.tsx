@@ -333,8 +333,6 @@ function App() {
               <div className="space-y-8">
                 {/* PROJETOS DESTAQUE (LÓGICA HÍBRIDA) */}
                 <div className="grid md:grid-cols-12 gap-6">
-                  {/* PROJETO 01: Rent a Cycle (Customizado para mostrar o que importa) */}
-                  {/* PROJETO 01: Rent a Cycle */}
                   <div className="md:col-span-8 group relative overflow-hidden bg-white/[0.02] border border-white/10 p-6 md:p-8 flex flex-col justify-end hover:border-[#8F3985]/50 transition-all min-h-[450px] md:min-h-[500px]">
                     <span className="absolute top-4 right-4 md:top-6 md:right-6 text-[8px] font-black text-[#8F3985] uppercase tracking-widest bg-[#8F3985]/10 px-2 py-1 z-20">
                       © Repo privado
