@@ -70,7 +70,7 @@ function App() {
           "https://api.github.com/users/beamonteiro19/repos?sort=updated&per_page=100",
         );
         const data = await response.json();
-        const starred = data.filter((repo: Repo) => repo.stargazers_count >= 0); // Ajustado para pegar todos se necessário
+        const starred = data.filter((repo: Repo) => repo.stargazers_count >= 0);
         setRepos(starred);
       } catch (error) {
         console.error("Erro:", error);
@@ -95,7 +95,7 @@ function App() {
   const otherRepos = useMemo(() => repos.slice(3), [repos]);
 
   return (
-    <div className="min-h-screen text-slate-100 bg-[#050d0a] selection:bg-[#8F3985] font-sans overflow-x-hidden">
+    <div className="min-h-screen text-slate-100 bg-[#0e0f18] selection:bg-[#8F3985] font-sans overflow-x-hidden">
       <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_50%_50%,_#10201a_0%,_#050d0a_100%)]" />
       <div
         className="pointer-events-none fixed inset-0 z-30 lg:block hidden"
