@@ -34,7 +34,7 @@ function ContactSection() {
   return (
     <section id="contact" className="py-32 px-6 text-center">
       <p className="text-[9px] font-black tracking-[0.5em] text-[#8F3985] mb-6 uppercase">
-        Interessado em colaborar?
+        Interessado em desenvolver um projeto ou apenas bater um papo sobre tecnologia?
       </p>
       <a
         href="mailto:beatrizmonteirovieira@outlook.com"
@@ -137,9 +137,7 @@ function App() {
             Fullstack <br />{" "}
             <span className="text-[#8F3985] text-gradient">Developer</span>
           </h1>
-          <p className="mt-6 text-[10px] tracking-[.3em] opacity-40 font-bold uppercase">
-            React • NestJS • Cloud Foundations
-          </p>
+ 
         </section>
 
         {/* SECTION: ABOUT */}
@@ -283,43 +281,28 @@ function App() {
                   {/* PROJETO 01: Bike.com (Customizado para mostrar o que importa) */}
                   <div className="md:col-span-8 group relative overflow-hidden bg-white/[0.02] aspect-video border border-white/10 p-8 flex flex-col justify-end hover:border-[#8F3985]/50 transition-all">
                     <span className="absolute top-6 right-6 text-[8px] font-black text-[#8F3985] uppercase tracking-widest bg-[#8F3985]/10 px-2 py-1">
-                      Featured Project
+                      Repo privado
                     </span>
-                    <h3 className="text-3xl font-black italic uppercase group-hover:text-[#8F3985] transition-colors">
-                      Bike.com (Landing Page)
-                    </h3>
-                    <p className="text-white/40 mt-2 max-w-md text-xs">
-                      Esta é a landing page oficial da BIKE.COM, uma empresa de aluguel de bicicletas localizada em frente ao Parque do Carmo, em São Paulo.
-                    </p>
+                    <h3 className="text-3xl font-black italic uppercase group-hover:text-[#8F3985] transition-colors">Rent a Cycle (SaaS)</h3>
+                    <p className="text-white/40 mt-2 max-w-md text-xs">O Rent a Cycle é uma plataforma para operação de aluguel de bikes com foco em agilidade no atendimento, controle financeiro e rastreabilidade das operações.
+
+A solução cobre o ciclo completo do aluguel: identificação/cadastro de cliente, seleção de itens, confirmação da locação, controle de devolução, fechamento com cobrança/ desconto/ cancelamento com motivo e acompanhamento de clientes ativos em tempo real.</p>
+                    <p className="text-white/40 mt-2 max-w-md text-xs">Sistema Fullstack com Electron, NestJS e PostgreSQL. Foco em segurança: Cookies httpOnly, Helmet e motor de auditoria de cobrança.</p>
                     <div className="mt-6 flex gap-2">
-                      {["React","Vite", "TailwindCSS", "GitHub API"].map(
-                        (t) => (
-                          <span
-                            key={t}
-                            className="text-[8px] border border-white/20 px-2 py-1 rounded-full uppercase font-bold"
-                          >
-                            {t}
-                          </span>
-                        ),
-                      )}
+                      {['NestJS', 'React', 'PostgreSQL', 'Electron'].map(t => (
+                        <span key={t} className="text-[8px] border border-white/20 px-2 py-1 rounded-full uppercase font-bold">{t}</span>
+                      ))}
                     </div>
                     <div className="mt-6 flex gap-4">
                       <a
-                        href="https://bike-com2-cdvcxewm1-beatrizs-projects-1a08e7f2.vercel.app"
+                        href="https://drive.google.com/file/d/12NlEfRMZqe2tAGI61WkG40s7Yec_-X6d/view?usp=drive_links"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-[10px] font-black tracking-[.3em] border border-[#8F3985] text-[#8F3985] px-4 py-2 rounded hover:bg-[#8F3985] hover:text-black transition-all uppercase"
                       >
-                        Deploy
+                        Video de demonstração
                       </a>
-                      <a
-                        href="https://github.com/beamonteiro19/bike.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[10px] font-black tracking-[.3em] border border-white/20 px-4 py-2 rounded hover:bg-white/10 transition-all uppercase"
-                      >
-                        Repositório
-                      </a>
+                     
                     </div>
                   </div>
 
