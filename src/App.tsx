@@ -34,7 +34,7 @@ function ContactSection() {
   return (
     <section id="contact" className="py-32 px-6 text-center">
       <p className="text-[9px] font-black tracking-[0.5em] text-[#8F3985] mb-6 uppercase">
-        Interessado em colaborar?
+        Interessado em desenvolver um projeto ou apenas bater um papo sobre tecnologia?
       </p>
       <a
         href="mailto:beatrizmonteirovieira@outlook.com"
@@ -137,9 +137,7 @@ function App() {
             Fullstack <br />{" "}
             <span className="text-[#8F3985] text-gradient">Developer</span>
           </h1>
-          <p className="mt-6 text-[10px] tracking-[.3em] opacity-40 font-bold uppercase">
-            React • NestJS • Cloud Foundations
-          </p>
+ 
         </section>
 
         {/* SECTION: ABOUT */}
