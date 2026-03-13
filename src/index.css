@@ -22,11 +22,11 @@ body {
 
 /* Efeito de Gradiente no Título */
 .text-gradient {
-  background: linear-gradient(to bottom right, #ffffff, var(--neon));
+  background: linear-gradient(180deg, #FFFFFF 30%, #8F3985 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
-
 /* Botão Estilo Peça de Performance */
 .btn-athlete {
   clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
