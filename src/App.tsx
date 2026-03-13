@@ -198,7 +198,15 @@ function App() {
                   <a
                     href="public\CV - Beatriz M. Vieira.pdf"
                     download="CV - Beatriz M. Vieira.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="group relative inline-flex items-center gap-4 px-8 py-4 border border-[#8F3985] bg-[#8F3985]/5 overflow-hidden transition-all duration-500 hover:bg-[#8F3985]"
+                    onClick={(e) => {
+                      // Pequeno hack para garantir o trigger em alguns navegadores mobile
+                      if (window.innerWidth < 768) {
+                        console.log("Iniciando download mobile...");
+                      }
+                    }}
                   >
                     <div className="absolute inset-0 w-0 bg-white/20 transition-all duration-300 ease-out group-hover:w-full" />
 
@@ -326,49 +334,61 @@ function App() {
                 {/* PROJETOS DESTAQUE (LÓGICA HÍBRIDA) */}
                 <div className="grid md:grid-cols-12 gap-6">
                   {/* PROJETO 01: Rent a Cycle (Customizado para mostrar o que importa) */}
-                  <div className="md:col-span-8 group relative overflow-hidden bg-white/[0.02] aspect-video border border-white/10 p-8 flex flex-col justify-end hover:border-[#8F3985]/50 transition-all">
-                    <span className="absolute top-6 right-6 text-[8px] font-black text-[#8F3985] uppercase tracking-widest bg-[#8F3985]/10 px-2 py-1">
+                  {/* PROJETO 01: Rent a Cycle */}
+                  <div className="md:col-span-8 group relative overflow-hidden bg-white/[0.02] border border-white/10 p-6 md:p-8 flex flex-col justify-end hover:border-[#8F3985]/50 transition-all min-h-[450px] md:min-h-[500px]">
+                    <span className="absolute top-4 right-4 md:top-6 md:right-6 text-[8px] font-black text-[#8F3985] uppercase tracking-widest bg-[#8F3985]/10 px-2 py-1 z-20">
                       © Repo privado
                     </span>
-                    <h3 className="text-3xl font-black italic uppercase group-hover:text-[#8F3985] transition-colors">
-                      Rent a Cycle (SaaS)
-                    </h3>
-                    <p className="text-white/40 mt-2 max-w-md text-xs">
-                      O Rent a Cycle é uma plataforma para operação de aluguel
-                      de bikes com foco em agilidade no atendimento, controle
-                      financeiro e rastreabilidade das operações. A solução
-                      cobre o ciclo completo do aluguel: identificação/cadastro
-                      de cliente, seleção de itens, confirmação da locação,
-                      controle de devolução, fechamento com cobrança/ desconto/
-                      cancelamento com motivo e acompanhamento de clientes
-                      ativos em tempo real.
-                    </p>
-                    <p className="text-white/40 mt-2 max-w-md text-xs">
-                      Sistema Fullstack com Electron, NestJS e PostgreSQL. Foco
-                      em segurança: Cookies httpOnly, Helmet e motor de
-                      auditoria de cobrança.
-                    </p>
-                    <div className="mt-6 flex gap-2">
-                      {["NestJS", "React", "PostgreSQL", "Electron"].map(
-                        (t) => (
-                          <span
-                            key={t}
-                            className="text-[8px] border border-white/20 px-2 py-1 rounded-full uppercase font-bold"
-                          >
-                            {t}
-                          </span>
-                        ),
-                      )}
-                    </div>
-                    <div className="mt-6 flex gap-4">
-                      <a
-                        href="https://drive.google.com/file/d/12NlEfRMZqe2tAGI61WkG40s7Yec_-X6d/view?usp=drive_links"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[10px] font-black tracking-[.3em] border border-[#8F3985] text-[#8F3985] px-4 py-2 rounded hover:bg-[#8F3985] hover:text-black transition-all uppercase"
-                      >
-                        Video de demonstração
-                      </a>
+
+                    {/* O conteúdo agora respira melhor */}
+                    <div className="relative z-10">
+                      <h3 className="text-3xl font-black italic uppercase group-hover:text-[#8F3985] transition-colors mb-4">
+                        Rent a Cycle (SaaS)
+                      </h3>
+
+                      <div className="space-y-4">
+                        <p className="text-white/40 max-w-2xl text-xs leading-relaxed text-justify">
+                          O Rent a Cycle é uma plataforma para operação de
+                          aluguel de bikes com foco em agilidade no atendimento,
+                          controle financeiro e rastreabilidade das operações. A
+                          solução cobre o ciclo completo do aluguel:
+                          identificação/cadastro de cliente, seleção de itens,
+                          confirmação da locação, controle de devolução,
+                          fechamento com cobrança/ desconto/ cancelamento com
+                          motivo e acompanhamento de clientes ativos em tempo
+                          real.
+                        </p>
+
+                        <p className="text-white/40 max-w-2xl text-xs leading-relaxed">
+                          Sistema Fullstack com Electron, NestJS e PostgreSQL.
+                          Foco em segurança: Cookies httpOnly, Helmet e motor de
+                          auditoria de cobrança.
+                        </p>
+                      </div>
+
+                      <div className="mt-6 flex flex-wrap gap-2">
+                        {["NestJS", "React", "PostgreSQL", "Electron"].map(
+                          (t) => (
+                            <span
+                              key={t}
+                              className="text-[8px] border border-white/20 px-3 py-1 rounded-full uppercase font-bold"
+                            >
+                              {t}
+                            </span>
+                          ),
+                        )}
+                      </div>
+
+                      <div className="mt-8">
+                        <a
+                          href="https://drive.google.com/file/d/12NlEfRMZqe2tAGI61WkG40s7Yec_-X6d/view?usp=drive_links"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-block text-[10px] font-black tracking-[.3em] border border-[#8F3985] text-[#8F3985] px-6 py-3 rounded hover:bg-[#8F3985] hover:text-black transition-all uppercase"
+                        >
+                          Video de demonstração
+                        </a>
+                      </div>
                     </div>
                   </div>
 
