@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import {type Repo } from "./models/Repo";
+import { type Repo } from "./models/Repo";
 
 function ContactSection() {
   const fullText = "VAMOS CONVERSAR?_";
@@ -25,7 +25,8 @@ function ContactSection() {
   return (
     <section id="contact" className="py-32 px-6 text-center">
       <p className="text-[9px] font-black tracking-[0.5em] text-[#8F3985] mb-6 uppercase">
-        Interessado em desenvolver um projeto ou apenas bater um papo sobre tecnologia?
+        Interessado em desenvolver um projeto ou apenas bater um papo sobre
+        tecnologia?
       </p>
       <a
         href="mailto:beatrizmonteirovieira@outlook.com"
@@ -45,6 +46,19 @@ function App() {
   const [showAll, setShowAll] = useState(false);
 
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const logoText = "B.MV";
+  const [logoDisplay, setLogoDisplay] = useState("");
+  const [logoIndex, setLogoIndex] = useState(0);
+
+  useEffect(() => {
+    if (logoIndex < logoText.length) {
+      const timeout = setTimeout(() => {
+        setLogoDisplay((prev) => prev + logoText[logoIndex]);
+        setLogoIndex((prev) => prev + 1);
+      }, 200);
+      return () => clearTimeout(timeout);
+    }
+  }, [logoIndex]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -86,18 +100,21 @@ function App() {
   const otherRepos = useMemo(() => repos.slice(3), [repos]);
 
   return (
-    <div className="min-h-screen text-slate-100 bg-[#0e0f18] selection:bg-[#8F3985] font-sans overflow-x-hidden">
-      <div className="fixed inset-0 -z-10 bg-[radial-gradient(circle_at_50%_50%,_#10201a_0%,_#050d0a_100%)]" />
+    <div className="min-h-screen text-slate-100 selection:bg-[#8F3985] font-sans overflow-x-hidden relative">
+      <div className="fixed inset-0 -z-20 bg-[#0e0f18]" />
+      <div className="fixed inset-0 -z-10 opacity-30 topography-pattern" />
       <div
         className="pointer-events-none fixed inset-0 z-30 lg:block hidden"
         style={{
-          background: `radial-gradient(600px at ${mousePos.x}px ${mousePos.y}px, rgba(143, 57, 133, 0.12), transparent 80%)`,
+          background: `radial-gradient(600px at ${mousePos.x}px ${mousePos.y}px, rgba(143, 57, 133, 0.15), transparent 80%)`,
         }}
       />
+
       {/* Nav */}
       <nav className="fixed left-0 right-0 top-0 z-[100] flex justify-between items-center px-8 py-5 backdrop-blur-md border-b border-white/5">
         <div className="text-base font-black tracking-tighter italic">
-          B.MV<span className="text-[#8F3985]">_</span>
+          {logoDisplay}
+          <span className="text-[#8F3985] animate-pulse">_</span>
         </div>
         <div className="flex gap-6 text-[9px] font-bold tracking-[0.3em] uppercase">
           <a href="#about" className="hover:text-[#8F3985] transition-all">
@@ -119,7 +136,11 @@ function App() {
       <main className="pt-24">
         {/* HERO */}
         <section className="px-6 flex flex-col items-center text-center py-20">
-          <div className="mb-6 inline-block border border-[#8F3985]/50 px-3 py-1 rounded-full">
+          <div className="mb-6 inline-flex items-center gap-2 border border-[#8F3985]/50 px-3 py-1 rounded-full">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#8F3985] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#8F3985]"></span>
+            </span>
             <p className="text-[8px] font-black tracking-[.4em] text-[#8F3985] uppercase leading-none">
               {workStatusLabel}
             </p>
@@ -128,7 +149,6 @@ function App() {
             Fullstack <br />{" "}
             <span className="text-[#8F3985] text-gradient">Developer</span>
           </h1>
- 
         </section>
 
         {/* SECTION: ABOUT */}
@@ -252,7 +272,7 @@ function App() {
           </div>
         </section>
 
-        {/* WORK SECTION */}
+        {/* PROJETOS */}
         <section id="work" className="py-24 px-6 border-t border-white/5">
           <div className="max-w-7xl mx-auto">
             <div className="mb-16 flex justify-between items-end">
@@ -277,17 +297,37 @@ function App() {
                   {/* PROJETO 01: Rent a Cycle (Customizado para mostrar o que importa) */}
                   <div className="md:col-span-8 group relative overflow-hidden bg-white/[0.02] aspect-video border border-white/10 p-8 flex flex-col justify-end hover:border-[#8F3985]/50 transition-all">
                     <span className="absolute top-6 right-6 text-[8px] font-black text-[#8F3985] uppercase tracking-widest bg-[#8F3985]/10 px-2 py-1">
-                      Repo privado
+                      © Repo privado
                     </span>
-                    <h3 className="text-3xl font-black italic uppercase group-hover:text-[#8F3985] transition-colors">Rent a Cycle (SaaS)</h3>
-                    <p className="text-white/40 mt-2 max-w-md text-xs">O Rent a Cycle é uma plataforma para operação de aluguel de bikes com foco em agilidade no atendimento, controle financeiro e rastreabilidade das operações.
-
-A solução cobre o ciclo completo do aluguel: identificação/cadastro de cliente, seleção de itens, confirmação da locação, controle de devolução, fechamento com cobrança/ desconto/ cancelamento com motivo e acompanhamento de clientes ativos em tempo real.</p>
-                    <p className="text-white/40 mt-2 max-w-md text-xs">Sistema Fullstack com Electron, NestJS e PostgreSQL. Foco em segurança: Cookies httpOnly, Helmet e motor de auditoria de cobrança.</p>
+                    <h3 className="text-3xl font-black italic uppercase group-hover:text-[#8F3985] transition-colors">
+                      Rent a Cycle (SaaS)
+                    </h3>
+                    <p className="text-white/40 mt-2 max-w-md text-xs">
+                      O Rent a Cycle é uma plataforma para operação de aluguel
+                      de bikes com foco em agilidade no atendimento, controle
+                      financeiro e rastreabilidade das operações. A solução
+                      cobre o ciclo completo do aluguel: identificação/cadastro
+                      de cliente, seleção de itens, confirmação da locação,
+                      controle de devolução, fechamento com cobrança/ desconto/
+                      cancelamento com motivo e acompanhamento de clientes
+                      ativos em tempo real.
+                    </p>
+                    <p className="text-white/40 mt-2 max-w-md text-xs">
+                      Sistema Fullstack com Electron, NestJS e PostgreSQL. Foco
+                      em segurança: Cookies httpOnly, Helmet e motor de
+                      auditoria de cobrança.
+                    </p>
                     <div className="mt-6 flex gap-2">
-                      {['NestJS', 'React', 'PostgreSQL', 'Electron'].map(t => (
-                        <span key={t} className="text-[8px] border border-white/20 px-2 py-1 rounded-full uppercase font-bold">{t}</span>
-                      ))}
+                      {["NestJS", "React", "PostgreSQL", "Electron"].map(
+                        (t) => (
+                          <span
+                            key={t}
+                            className="text-[8px] border border-white/20 px-2 py-1 rounded-full uppercase font-bold"
+                          >
+                            {t}
+                          </span>
+                        ),
+                      )}
                     </div>
                     <div className="mt-6 flex gap-4">
                       <a
@@ -298,7 +338,6 @@ A solução cobre o ciclo completo do aluguel: identificação/cadastro de clien
                       >
                         Video de demonstração
                       </a>
-                     
                     </div>
                   </div>
 
@@ -338,7 +377,7 @@ A solução cobre o ciclo completo do aluguel: identificação/cadastro de clien
                   )}
                 </div>
 
-                {/* BOTÃO VER MAIS */}
+                {/* VER MAIS */}
                 <div className="flex justify-center pt-8">
                   <button
                     onClick={() => setShowAll(!showAll)}
@@ -355,21 +394,33 @@ A solução cobre o ciclo completo do aluguel: identificação/cadastro de clien
                         key={repo.id}
                         href={repo.html_url}
                         target="_blank"
-                        className="group border border-white/10 p-6 flex flex-col justify-between hover:bg-[#8F3985] transition-all duration-500 min-h-[180px]"
+                        className="group relative border border-white/10 p-6 flex flex-col justify-between bg-[#8F3985] transition-all duration-500 min-h-[180px] overflow-hidden"
                       >
-                        <div>
+                        {/* Camada da Imagem (Invisível por padrão, surge no hover) */}
+                        <div
+                          className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-all duration-500 bg-cover bg-center scale-110 group-hover:scale-100"
+                          style={{
+                            backgroundImage: `url(https://opengraph.githubassets.com/1/beamonteiro19/${repo.name})`,
+                          }}
+                        />
+
+                        {/* Overlay escuro opcional (para garantir que se o repo não tiver imagem, o card não fique vazio ou estranho) */}
+                        <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-[1]" />
+
+                        {/* Conteúdo do Card (Texto que some no hover) */}
+                        <div className="relative z-10 transition-all duration-500 group-hover:opacity-0 group-hover:scale-95 group-hover:blur-sm">
                           <div className="flex justify-between items-start mb-4">
-                            <span className="text-[8px] font-black opacity-40 group-hover:text-black uppercase tracking-widest">
+                            <span className="text-[8px] font-black text-black/60 uppercase tracking-widest">
                               {repo.language}
                             </span>
-                            <span className="text-[9px] font-bold group-hover:text-black italic">
+                            <span className="text-[9px] font-bold text-black italic">
                               ★ {repo.stargazers_count}
                             </span>
                           </div>
-                          <h4 className="text-lg font-black italic uppercase group-hover:text-black leading-tight mb-2">
+                          <h4 className="text-lg font-black italic uppercase text-black leading-tight mb-2">
                             {repo.name.replace(/-/g, " ")}
                           </h4>
-                          <p className="text-[10px] text-white/40 group-hover:text-black/60 line-clamp-2 leading-relaxed">
+                          <p className="text-[10px] text-black/50 line-clamp-2 leading-relaxed font-bold">
                             {repo.description}
                           </p>
                         </div>
@@ -388,7 +439,7 @@ A solução cobre o ciclo completo do aluguel: identificação/cadastro de clien
       <footer className="border-t border-white/5 py-10 px-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-[9px] font-bold opacity-30 tracking-[.2em] uppercase">
-            Beatriz Monteiro Vieira — 2026
+            © Beatriz Monteiro Vieira — 2026
           </div>
           <div className="flex gap-6">
             <a
