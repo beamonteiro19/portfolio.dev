@@ -1,14 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-
-interface Repo {
-  id: number;
-  name: string;
-  description: string;
-  html_url: string;
-  stargazers_count: number;
-  language: string;
-  topics: string[];
-}
+import {type Repo } from "./models/Repo";
 
 function ContactSection() {
   const fullText = "VAMOS CONVERSAR?_";
@@ -219,14 +210,19 @@ function App() {
               <div className="grid grid-cols-1 gap-6">
                 {[
                   {
+                    title: "T&T Equipamentos Médicos",
+                    role: "Técnica em Equipamentos Biomédicos",
+                    date: "05/2021 — 08/2021",
+                  },
+                  {
                     title: "PicPay",
                     role: "Engenharia de Software (Jovem Aprendiz)",
-                    date: "2021 — 2023",
+                    date: "10/2021 — 03/2023",
                   },
                   {
                     title: "Generation Brasil",
                     role: "Full Stack Java/JS Bootcamp",
-                    date: "2025 — 2026",
+                    date: "10/2025 — 02/2026",
                   },
                   {
                     title: "FATEC Itaquera",
@@ -278,7 +274,7 @@ function App() {
               <div className="space-y-8">
                 {/* PROJETOS DESTAQUE (LÓGICA HÍBRIDA) */}
                 <div className="grid md:grid-cols-12 gap-6">
-                  {/* PROJETO 01: Bike.com (Customizado para mostrar o que importa) */}
+                  {/* PROJETO 01: Rent a Cycle (Customizado para mostrar o que importa) */}
                   <div className="md:col-span-8 group relative overflow-hidden bg-white/[0.02] aspect-video border border-white/10 p-8 flex flex-col justify-end hover:border-[#8F3985]/50 transition-all">
                     <span className="absolute top-6 right-6 text-[8px] font-black text-[#8F3985] uppercase tracking-widest bg-[#8F3985]/10 px-2 py-1">
                       Repo privado
