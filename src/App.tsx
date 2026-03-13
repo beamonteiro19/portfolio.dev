@@ -181,10 +181,7 @@ function App() {
                   <span className="text-white underline decoration-[#8F3985]">
                     Angular
                   </span>{" "}
-                  e garantindo a performance de dashboards internos. Hoje,
-                  combino essa vivência corporativa com certificações em{" "}
-                  <span className="text-white">AWS e Google Cloud</span> para
-                  entregar aplicações Fullstack completas.
+                  e garantindo a performance de dashboards internos.
                 </p>
                 <p>
                   Atualmente finalizando a graduação na{" "}
@@ -195,8 +192,42 @@ function App() {
                   </span>
                   , sempre priorizando Clean Code e segurança da informação.
                 </p>
+
+                {/* --- BOTÃO BAIXAR CURRÍCULO --- */}
+                <div className="pt-10 flex justify-start">
+                  <a
+                    href="public\CV - Beatriz M. Vieira.pdf"
+                    download="CV - Beatriz M. Vieira.pdf"
+                    className="group relative inline-flex items-center gap-4 px-8 py-4 border border-[#8F3985] bg-[#8F3985]/5 overflow-hidden transition-all duration-500 hover:bg-[#8F3985]"
+                  >
+                    <div className="absolute inset-0 w-0 bg-white/20 transition-all duration-300 ease-out group-hover:w-full" />
+
+                    <span className="relative text-[10px] font-black tracking-[0.4em] uppercase text-[#8F3985] group-hover:text-black transition-colors duration-300">
+                      Baixar Currículo
+                    </span>
+
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="relative text-[#8F3985] group-hover:text-black group-hover:translate-y-1 transition-all duration-300"
+                    >
+                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                      <polyline points="7 10 12 15 17 10" />
+                      <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
+
+            {/* O restante do código (Stack e Experiências) permanece igual... */}
 
             <div className="space-y-12">
               {/* SKILLS TAGS */}
