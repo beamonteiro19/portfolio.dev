@@ -196,7 +196,7 @@ function App() {
                 {/* --- BOTÃO BAIXAR CURRÍCULO --- */}
                 <div className="pt-10 flex justify-start">
                   <a
-                    href="public\CV - Beatriz M. Vieira.pdf"
+                    href="/CV - Beatriz M. Vieira.pdf"
                     download="CV - Beatriz M. Vieira.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
