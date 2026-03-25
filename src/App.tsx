@@ -196,10 +196,8 @@ function App() {
                 {/* --- BOTÃO BAIXAR CURRÍCULO --- */}
                 <div className="pt-10 flex justify-start">
                   <a
-                    href="public\CV - Beatriz M. Vieira.pdf"
+                    href="/CV%20-%20Beatriz%20M.%20Vieira.pdf"
                     download="CV - Beatriz M. Vieira.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
                     className="group relative inline-flex items-center gap-4 px-8 py-4 border border-[#8F3985] bg-[#8F3985]/5 overflow-hidden transition-all duration-500 hover:bg-[#8F3985]"
                     onClick={() => {
                       if (window.innerWidth < 768) {
