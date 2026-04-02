@@ -266,14 +266,14 @@ function App() {
               <div className="grid grid-cols-1 gap-6">
                 {[
                   {
-                    title: "T&T Equipamentos Médicos",
-                    role: "Técnica em Equipamentos Biomédicos",
-                    date: "05/2021 — 08/2021",
+                    title: "Cadmus Soluções em TI",
+                    role: "Estágio",
+                    date: "04/2026 — Presente",
                   },
                   {
-                    title: "PicPay",
-                    role: "Engenharia de Software (Jovem Aprendiz)",
-                    date: "10/2021 — 03/2023",
+                    title: "FATEC Itaquera",
+                    role: "D.S. Multiplataforma",
+                    date: "Previsão 2027",
                   },
                   {
                     title: "Generation Brasil",
@@ -281,9 +281,14 @@ function App() {
                     date: "10/2025 — 02/2026",
                   },
                   {
-                    title: "FATEC Itaquera",
-                    role: "D.S. Multiplataforma",
-                    date: "Previsão 2027",
+                    title: "PicPay",
+                    role: "Engenharia de Software (Jovem Aprendiz)",
+                    date: "10/2021 — 03/2023",
+                  },
+                  {
+                    title: "T&T Equipamentos Médicos",
+                    role: "Técnica em Equipamentos Biomédicos",
+                    date: "05/2021 — 08/2021",
                   },
                 ].map((exp, i) => (
                   <div
@@ -298,7 +303,7 @@ function App() {
                         {exp.date}
                       </span>
                     </div>
-                      <p className="text-xs text-white/40 group-hover:text-white/60 transition-colors uppercase font-bold tracking-widest">
+                    <p className="text-xs text-white/40 group-hover:text-white/60 transition-colors uppercase font-bold tracking-widest">
                       {exp.role}
                     </p>
                   </div>
