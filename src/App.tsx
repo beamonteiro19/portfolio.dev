@@ -112,11 +112,11 @@ function App() {
 
       {/* Nav */}
       <nav className="fixed left-0 right-0 top-0 z-[100] flex justify-between items-center px-8 py-5 backdrop-blur-md border-b border-white/5">
-        <div className="text-base font-black tracking-tighter italic">
+        <div className="text-lg font-black tracking-tighter italic">
           {logoDisplay}
           <span className="text-[#8F3985] animate-pulse">_</span>
         </div>
-        <div className="flex gap-6 text-[9px] font-bold tracking-[0.3em] uppercase">
+        <div className="flex gap-6 text-sm font-bold tracking-[0.3em] uppercase">
           <a href="#about" className="hover:text-[#8F3985] transition-all">
             Sobre
           </a>
@@ -127,7 +127,7 @@ function App() {
             Contato
           </a>
         </div>
-        <div className="text-[9px] font-bold opacity-40 uppercase tracking-[0.2em] hidden sm:block">
+        <div className="text-xs font-bold opacity-40 uppercase tracking-[0.2em] hidden sm:block">
           {now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })} —
           SÃO PAULO
         </div>
@@ -162,10 +162,10 @@ function App() {
                 / minha trajetória
               </p>
               <h2 className="text-4xl font-black italic tracking-tighter uppercase leading-tight mb-8">
-                Código com rigor <br /> técnico e foco em{" "}
+                Meu mundo FullStack |<br /> técnico e foco em{" "}
                 <span className="text-[#8F3985]">segurança</span>.
               </h2>
-              <div className="space-y-6 text-white/50 text-sm leading-relaxed max-w-md text-justify">
+              <div className="space-y-6 text-white/50 text-base leading-relaxed max-w-md text-justify">
                 <p>
                   Minha jornada começou na área de{" "}
                   <span className="text-white italic">
@@ -266,14 +266,14 @@ function App() {
               <div className="grid grid-cols-1 gap-6">
                 {[
                   {
-                    title: "T&T Equipamentos Médicos",
-                    role: "Técnica em Equipamentos Biomédicos",
-                    date: "05/2021 — 08/2021",
+                    title: "Cadmus Soluções em TI",
+                    role: "Estágio",
+                    date: "04/2026 — Presente",
                   },
                   {
-                    title: "PicPay",
-                    role: "Engenharia de Software (Jovem Aprendiz)",
-                    date: "10/2021 — 03/2023",
+                    title: "FATEC Itaquera",
+                    role: "D.S. Multiplataforma",
+                    date: "Previsão 2027",
                   },
                   {
                     title: "Generation Brasil",
@@ -281,9 +281,14 @@ function App() {
                     date: "10/2025 — 02/2026",
                   },
                   {
-                    title: "FATEC Itaquera",
-                    role: "D.S. Multiplataforma",
-                    date: "Previsão 2027",
+                    title: "PicPay",
+                    role: "Engenharia de Software (Jovem Aprendiz)",
+                    date: "10/2021 — 03/2023",
+                  },
+                  {
+                    title: "T&T Equipamentos Médicos",
+                    role: "Técnica em Equipamentos Biomédicos",
+                    date: "05/2021 — 08/2021",
                   },
                 ].map((exp, i) => (
                   <div
@@ -291,14 +296,14 @@ function App() {
                     className="group p-4 bg-white/[0.02] border-l-2 border-[#8F3985]/30 hover:border-[#8F3985] transition-all"
                   >
                     <div className="flex justify-between items-start mb-1">
-                      <h3 className="text-sm font-black italic uppercase tracking-tight">
+                      <h3 className="text-base font-black italic uppercase tracking-tight">
                         {exp.title}
                       </h3>
-                      <span className="text-[8px] font-bold opacity-30">
+                      <span className="text-xs font-bold opacity-30">
                         {exp.date}
                       </span>
                     </div>
-                    <p className="text-[10px] text-white/40 group-hover:text-white/60 transition-colors uppercase font-bold tracking-widest">
+                    <p className="text-xs text-white/40 group-hover:text-white/60 transition-colors uppercase font-bold tracking-widest">
                       {exp.role}
                     </p>
                   </div>
@@ -463,10 +468,10 @@ function App() {
                               ★ {repo.stargazers_count}
                             </span>
                           </div>
-                          <h4 className="text-lg font-black italic uppercase text-black leading-tight mb-2">
+                          <h4 className="text-xl font-black italic uppercase text-black leading-tight mb-2">
                             {repo.name.replace(/-/g, " ")}
                           </h4>
-                          <p className="text-[10px] text-black/50 line-clamp-2 leading-relaxed font-bold">
+                          <p className="text-sm text-black/50 line-clamp-2 leading-relaxed font-bold">
                             {repo.description}
                           </p>
                         </div>
