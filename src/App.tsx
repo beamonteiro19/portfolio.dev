@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { type Repo } from "./models/Repo";
+import { CertificatesSection } from "./components/CertificatesSection";
 
 function ContactSection() {
   const fullText = "VAMOS CONVERSAR?_";
@@ -20,18 +21,17 @@ function ContactSection() {
       }, 5000);
       return () => clearTimeout(restartTimeout);
     }
-  }, [index, fullText.length]);
+  }, [index]);
 
   return (
-    <section id="contact" className="py-16 sm:py-32 px-4 sm:px-6 text-center">
-      <p className="text-[8px] sm:text-[9px] font-black tracking-[0.4em] sm:tracking-[0.5em] text-[#8F3985] mb-4 sm:mb-6 uppercase">
+    <section id="contact" className="py-32 px-6 text-center">
+      <p className="text-[9px] font-black tracking-[0.5em] text-[#8F3985] mb-6 uppercase">
         Interessado em desenvolver um projeto ou apenas bater um papo sobre
         tecnologia?
       </p>
       <a
         href="mailto:beatrizmonteirovieira@outlook.com"
-        className="text-2xl sm:text-4xl md:text-5xl font-black italic hover:text-[#8F3985] transition-all tracking-tighter uppercase leading-none inline-block min-h-[1.2em]"
-        aria-label="Enviar email"
+        className="text-4xl md:text-5xl font-black italic hover:text-[#8F3985] transition-all tracking-tighter uppercase leading-none inline-block min-h-[1.2em]"
       >
         {displayText}
         <span className="animate-pulse ml-1 text-[#8F3985]">|</span>
@@ -44,7 +44,6 @@ function App() {
   const [now, setNow] = useState(() => new Date());
   const [repos, setRepos] = useState<Repo[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
   const [showAll, setShowAll] = useState(false);
 
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -52,7 +51,6 @@ function App() {
   const [logoDisplay, setLogoDisplay] = useState("");
   const [logoIndex, setLogoIndex] = useState(0);
 
-  // Logo animation - only run once on mount
   useEffect(() => {
     if (logoIndex < logoText.length) {
       const timeout = setTimeout(() => {
@@ -74,22 +72,14 @@ function App() {
   useEffect(() => {
     const fetchRepos = async () => {
       try {
-        setError(null);
         const response = await fetch(
           "https://api.github.com/users/beamonteiro19/repos?sort=updated&per_page=100",
-          { signal: AbortSignal.timeout(10000) }
         );
-
-        if (!response.ok) {
-          throw new Error(`GitHub API error: ${response.status}`);
-        }
-
         const data = await response.json();
         const starred = data.filter((repo: Repo) => repo.stargazers_count >= 0);
         setRepos(starred);
       } catch (error) {
-        console.error("Erro ao carregar repositórios:", error);
-        setError("Não foi possível carregar seus repositórios. Tente novamente mais tarde.");
+        console.error("Erro:", error);
       } finally {
         setLoading(false);
       }
@@ -115,33 +105,36 @@ function App() {
       />
 
       {/* Nav */}
-      <nav className="fixed left-0 right-0 top-0 z-[100] flex justify-between items-center px-4 sm:px-8 py-5 backdrop-blur-md border-b border-white/5 gap-2 sm:gap-4">
-        <div className="text-sm sm:text-lg font-black tracking-tighter italic truncate">
+      <nav className="fixed left-0 right-0 top-0 z-[100] flex justify-between items-center px-8 py-5 backdrop-blur-md border-b border-white/5">
+        <div className="text-lg font-black tracking-tighter italic">
           {logoDisplay}
           <span className="text-[#8F3985] animate-pulse">_</span>
         </div>
-        <div className="flex gap-2 sm:gap-6 text-[9px] sm:text-xs md:text-sm font-bold tracking-[0.2em] sm:tracking-[0.3em] uppercase">
-          <a href="#about" className="hover:text-[#8F3985] transition-all whitespace-nowrap">
+        <div className="flex gap-6 text-[10px] sm:text-xs md:text-sm font-bold tracking-[0.3em] uppercase">
+          <a href="#about" className="hover:text-[#8F3985] transition-all">
             Sobre
           </a>
-          <a href="#work" className="hover:text-[#8F3985] transition-all whitespace-nowrap">
+          <a href="#certificates" className="hover:text-[#8F3985] transition-all">
+            Certificações
+          </a>
+          <a href="#work" className="hover:text-[#8F3985] transition-all">
             Trabalhos
           </a>
-          <a href="#contact" className="hover:text-[#8F3985] transition-all whitespace-nowrap">
+          <a href="#contact" className="hover:text-[#8F3985] transition-all">
             Contato
           </a>
         </div>
-        <div className="text-[7px] sm:text-xs font-bold opacity-40 uppercase tracking-[0.15em] hidden sm:block whitespace-nowrap">
+        <div className="text-xs font-bold opacity-40 uppercase tracking-[0.2em] hidden sm:block">
           {now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })} —
           SÃO PAULO
         </div>
       </nav>
 
-      <main className="pt-20 sm:pt-24">
+      <main className="pt-24">
         {/* HERO */}
-        <section className="px-4 sm:px-6 flex flex-col items-center text-center py-12 sm:py-20">
+        <section className="px-6 flex flex-col items-center text-center py-20">
           {/* workStatusLabel removido */}
-          <h1 className="text-[10vw] sm:text-[8vw] md:text-[7vw] font-black italic leading-[0.9] tracking-tighter uppercase break-words">
+          <h1 className="text-[8vw] sm:text-[7vw] font-black italic leading-[0.9] tracking-tighter uppercase">
             Fullstack <br />{" "}
             <span className="text-[#8F3985] text-gradient">Developer</span>
           </h1>
@@ -150,9 +143,9 @@ function App() {
         {/* SECTION: ABOUT */}
         <section
           id="about"
-          className="py-16 sm:py-32 px-4 sm:px-6 border-t border-white/5 bg-white/[0.01]"
+          className="py-32 px-6 border-t border-white/5 bg-white/[0.01]"
         >
-          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 sm:gap-16">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16">
             <div>
               <p className="text-[#8F3985] font-black text-[9px] tracking-[.5em] mb-4 uppercase">
                 / minha trajetória
@@ -309,16 +302,19 @@ function App() {
           </div>
         </section>
 
+        {/* CERTIFICATES SECTION */}
+        <CertificatesSection />
+
         {/* PROJETOS */}
-        <section id="work" className="py-16 sm:py-24 px-4 sm:px-6 border-t border-white/5">
+        <section id="work" className="py-24 px-6 border-t border-white/5">
           <div className="max-w-7xl mx-auto">
-            <div className="mb-12 sm:mb-16 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
-              <h2 className="text-4xl sm:text-5xl font-black italic tracking-tighter uppercase leading-none">
+            <div className="mb-16 flex justify-between items-end">
+              <h2 className="text-5xl font-black italic tracking-tighter uppercase leading-none">
                 Meus
                 <br />
                 <span className="text-[#8F3985] text-gradient">Projetos</span>
               </h2>
-              <p className="text-[8px] sm:text-[9px] text-white/20 tracking-[.2em] sm:tracking-[.3em] uppercase">
+              <p className="text-[9px] text-white/20 tracking-[.3em] uppercase hidden md:block">
                 GitHub Sincronizado
               </p>
             </div>
@@ -326,18 +322,6 @@ function App() {
             {loading ? (
               <div className="py-20 text-center opacity-20 animate-pulse font-black italic uppercase">
                 Buscando Repositórios...
-              </div>
-            ) : error ? (
-              <div className="py-20 text-center">
-                <p className="text-[#8F3985] font-black italic uppercase mb-4">
-                  {error}
-                </p>
-                <button
-                  onClick={() => window.location.reload()}
-                  className="text-xs font-black tracking-[.2em] border border-[#8F3985] text-[#8F3985] px-6 py-3 hover:bg-[#8F3985] hover:text-black transition-all uppercase"
-                >
-                  Tentar Novamente
-                </button>
               </div>
             ) : (
               <div className="space-y-8">
@@ -461,8 +445,6 @@ function App() {
                           style={{
                             backgroundImage: `url(https://opengraph.githubassets.com/1/beamonteiro19/${repo.name})`,
                           }}
-                          role="img"
-                          aria-label={`Screenshot of ${repo.name}`}
                         />
 
                         {/* Overlay escuro opcional (para garantir que se o repo não tiver imagem, o card não fique vazio ou estranho) */}
@@ -497,18 +479,16 @@ function App() {
         <ContactSection />
       </main>
 
-      <footer className="border-t border-white/5 py-6 sm:py-10 px-4 sm:px-8">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-6">
-          <div className="text-[8px] sm:text-[9px] font-bold opacity-30 tracking-[.15em] sm:tracking-[.2em] uppercase">
+      <footer className="border-t border-white/5 py-10 px-8">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="text-[9px] font-bold opacity-30 tracking-[.2em] uppercase">
             © Beatriz Monteiro Vieira — 2026
           </div>
-          <div className="flex gap-4 sm:gap-6">
+          <div className="flex gap-6">
             <a
               href="https://github.com/beamonteiro19"
               target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-              className="flex items-center gap-1 text-[8px] sm:text-[9px] font-black hover:text-[#8F3985] transition-colors uppercase tracking-widest"
+              className="flex items-center gap-1 text-[9px] font-black hover:text-[#8F3985] transition-colors uppercase tracking-widest"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline align-middle"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 21.13V25"/></svg>
               GitHub
@@ -516,9 +496,7 @@ function App() {
             <a
               href="https://linkedin.com/in/beatriz-mv"
               target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="flex items-center gap-1 text-[8px] sm:text-[9px] font-black hover:text-[#8F3985] transition-colors uppercase tracking-widest"
+              className="flex items-center gap-1 text-[9px] font-black hover:text-[#8F3985] transition-colors uppercase tracking-widest"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="inline align-middle"><rect x="2" y="2" width="20" height="20" rx="2" ry="2"/><line x1="16" y1="11" x2="16" y2="16"/><line x1="8" y1="11" x2="8" y2="16"/><line x1="8" y1="8" x2="8" y2="8"/><line x1="12" y1="16" x2="12" y2="11"/><path d="M16 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"/></svg>
               LinkedIn

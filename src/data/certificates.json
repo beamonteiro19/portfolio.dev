@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "title": "Segurança em Aplicações Web",
+    "institution": "Alura",
+    "category": "Security",
+    "date": "2024",
+    "verificationUrl": "#",
+    "description": "Aprendi técnicas de proteção contra vulnerabilidades web como XSS, CSRF e SQL Injection."
+  },
+  {
+    "id": 2,
+    "title": "React: Hooks, Context & Performance",
+    "institution": "Alura",
+    "category": "React",
+    "date": "2024",
+    "verificationUrl": "#",
+    "description": "Domínio completo de Hooks, Context API e otimizações de performance em React."
+  },
+  {
+    "id": 3,
+    "title": "Node.js & Express APIs",
+    "institution": "Alura",
+    "category": "Backend",
+    "date": "2023",
+    "verificationUrl": "#",
+    "description": "Construção de APIs RESTful robustas com Node.js e Express."
+  },
+  {
+    "id": 4,
+    "title": "TypeScript Avançado",
+    "institution": "Alura",
+    "category": "TypeScript",
+    "date": "2023",
+    "verificationUrl": "#",
+    "description": "Tipos avançados, Generics e padrões de design com TypeScript."
+  },
+  {
+    "id": 5,
+    "title": "PostgreSQL & Banco de Dados",
+    "institution": "Alura",
+    "category": "Database",
+    "date": "2023",
+    "verificationUrl": "#",
+    "description": "Design de databases, queries otimizadas e gestão de dados com PostgreSQL."
+  },
+  {
+    "id": 6,
+    "title": "JavaScript: Fundamentos & Avançado",
+    "institution": "Alura",
+    "category": "JavaScript",
+    "date": "2022",
+    "verificationUrl": "#",
+    "description": "Domínio completo do JavaScript: closures, promises, async/await e event loop."
+  }
+]
