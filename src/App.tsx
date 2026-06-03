@@ -440,7 +440,7 @@ function App() {
                   como as coisas funcionam. Acredito que pequenas melhorias e
                   atenção aos detalhes podem gerar grandes resultados, e busco
                   evoluir continuamente, tanto no aspecto técnico quanto no
-                  profissional. Sinto que trabalho bem sob pressão e é daí que grandes produtos e ideias surgem.
+                  profissional. Sinto que trabalho bem sobre pressão e é daí que grandes produtos e ideias surgem.
                 </p>
 
                 {/* --- BOTÃO BAIXAR CURRÍCULO --- */}
@@ -482,11 +482,13 @@ function App() {
               </div>
             </div>
 
-            <div className="space-y-12 lg:col-span-5 lg:pt-3">
+            {/* O restante do código (Stack e Experiências) permanece igual... */}
+
+            <div className="space-y-6 lg:col-span-5 lg:sticky lg:top-28">
               {/* SKILLS TAGS */}
               <div>
-                <span className="text-[#8F3985] font-black text-[9px] tracking-[.5em] uppercase mb-5 block ">
-                  Stack principal
+                <span className="text-[#8F3985] font-black text-[9px] tracking-[.5em] uppercase mb-6 block ">
+                  Stack
                 </span>
                 <div className="flex flex-wrap gap-2">
                   {[
@@ -499,20 +501,13 @@ function App() {
                     "Google Cloud",
                     "TypeScript",
                     "Spring Boot",
-                    "JavaScript",
-                    "Java",
-                    "HTML",
-                    "CSS",
-                    "Tailwind CSS",
-                    "Git",
-                    "GitHub",
-                    "Docker",
-                    "MySQL",
-                    "MongoDB",
+                    ".NET",
+                    "C#",
+
                   ].map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1.5 border border-white/10 bg-white/[0.02] text-[10px] font-bold hover:border-[#8F3985] hover:bg-[#8F3985]/10 transition-colors uppercase"
+                      className="px-3 py-1 border border-white/10 text-[10px] font-bold hover:border-[#8F3985] transition-colors uppercase"
                     >
                       {skill}
                     </span>
@@ -521,11 +516,7 @@ function App() {
               </div>
 
               {/* EXPERIENCES BOX */}
-              <div>
-                <span className="text-[#8F3985] font-black text-[9px] tracking-[.5em] uppercase mb-5 block">
-                  Experiência
-                </span>
-                <div className="grid grid-cols-1 gap-5">
+              <div className="grid grid-cols-1 gap-6">
                 {[
                   {
                     title: "Cadmus Soluções em TI",
@@ -555,7 +546,7 @@ function App() {
                 ].map((exp, i) => (
                   <div
                     key={i}
-                    className="group py-1 pl-5 border-l-2 border-[#8F3985]/30 hover:border-[#8F3985] transition-all"
+                    className="group p-4 bg-white/[0.02] border-l-2 border-[#8F3985]/30 hover:border-[#8F3985] transition-all"
                   >
                     <div className="flex justify-between items-start mb-1">
                       <h3 className="text-base font-black italic uppercase tracking-tight">
@@ -570,13 +561,13 @@ function App() {
                     </p>
                   </div>
                 ))}
-                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* CLIENTES mockado pq ainda n tenho kkkk*/}
+        {/* CLIENTES mockado pq ainda n tenho kkkk; */}
+        {/* CLIENTES mockado pq ainda n tenho kkkk; 
         <section className="py-24 px-6 border-t border-white/5 bg-black/10">
           <div className="max-w-7xl mx-auto">
             <div className="mb-12 grid gap-8 md:grid-cols-[1fr_1.2fr] md:items-end">
@@ -591,10 +582,10 @@ function App() {
 
             <div className="grid gap-4 md:grid-cols-4">
               {[
-                { label: "SaaS", value: "Operações" },
+                { label: "SaaS", value: "Operacoes" },
                 { label: "Fintech", value: "Dashboards" },
                 { label: "Healthtech", value: "Sistemas" },
-                { label: "Educação", value: "Web Apps" },
+                { label: "Educacao", value: "Web Apps" },
               ].map((client) => (
                 <div
                   key={client.label}
@@ -620,17 +611,17 @@ function App() {
                 {
                   metric: "04",
                   title: "Produtos digitais",
-                  text: "Fluxos completos de cadastro, gestão, auditoria e acompanhamento operacional.",
+                  text: "Fluxos completos de cadastro, gestao, auditoria e acompanhamento operacional.",
                 },
                 {
                   metric: "12+",
                   title: "Interfaces internas",
-                  text: "Telas focadas em leitura rápida, produtividade e consistência de dados.",
+                  text: "Telas focadas em leitura rapida, produtividade e consistencia de dados.",
                 },
                 {
                   metric: "100%",
-                  title: "Entrega técnica",
-                  text: "React, NestJS, TypeScript, bancos relacionais e boas práticas de segurança.",
+                  title: "Entrega tecnica",
+                  text: "React, NestJS, TypeScript, bancos relacionais e boas praticas de seguranca.",
                 },
               ].map((item) => (
                 <div
@@ -651,6 +642,7 @@ function App() {
             </div>
           </div>
         </section>
+        */}
 
         {/* PROJETOS */}
         <section id="work" className="py-24 px-6 border-t border-white/5">
@@ -722,7 +714,7 @@ function App() {
                           rel="noopener noreferrer"
                           className="inline-block text-[10px] font-black tracking-[.3em] border border-[#8F3985] text-[#8F3985] px-6 py-3 rounded hover:bg-[#8F3985] hover:text-black transition-all uppercase"
                         >
-                          Vídeo de demonstração
+                          Video de demonstração
                         </a>
                       </div>
                     </div>
